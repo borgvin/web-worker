@@ -98,7 +98,15 @@ function mainThread() {
 				mod = url;
 			}
 			else {
-				mod = URL.fileURLToPath(new URL.URL(url, baseUrl));
+				const urlObject = new URL.URL(url, baseUrl);
+				// fix for full paths on windows
+				// https://github.com/developit/web-worker/issues/15
+				try {
+					mod = URL.fileURLToPath(urlObject);
+				} catch(e) {
+					mod = urlObject.pathName;
+				} 
+
 			}
 			const worker = new threads.Worker(
 				__filename,

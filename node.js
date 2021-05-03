@@ -104,7 +104,7 @@ function mainThread() {
 				try {
 					mod = URL.fileURLToPath(urlObject);
 				} catch(e) {
-					mod = urlObject.pathName;
+					mod = urlObject.pathname;
 				} 
 
 			}

@@ -16,7 +16,6 @@
     "node.js"
   ],
   "scripts": {
-    "prepare": "babel node.js browser.js -d cjs",
     "test": "eslint '*.js' test && node --experimental-modules ./node_modules/.bin/ava"
   },
   "babel": {
